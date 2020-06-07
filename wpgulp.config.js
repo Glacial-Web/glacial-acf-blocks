@@ -48,8 +48,8 @@ module.exports = {
 	translationDestination: './languages', // Where to save the translation files.
 	packageName: 'WPGULP', // Package name.
 	bugReport: 'https://AhmadAwais.com/contact/', // Where can users report bugs.
-	lastTranslator: 'Ahmad Awais <your_email@email.com>', // Last translator Email ID.
-	team: 'AhmadAwais <your_email@email.com>', // Team's Email ID.
+	lastTranslator: 'Greg Conrad <greg@glacial.com>', // Last translator Email ID.
+	team: 'WebDev <webdev@glacial.com>', // Team's Email ID.
 
 	// Browsers you care about for autoprefixing. Browserlist https://github.com/ai/browserslist
 	// The following list is set as per WordPress requirements. Though, Feel free to change.

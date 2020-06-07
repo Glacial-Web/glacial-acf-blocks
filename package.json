@@ -1,11 +1,11 @@
 {
-  "name": "your-project",
-  "description": "A WPGulp based project.",
+  "name": "glacial-acf-blocks",
+  "description": "A collection of WP Gutenberg blocks using ACF",
   "version": "1.0.0",
-  "author": "Author Name (https://twitter.com/MrAhmadAwais/)",
+  "author": "Greg Conrad (greg@glacial.com)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmadawais/WPGulp"
+    "url": "https://github.com/gconrad0/glacial-acf-blocks"
   },
   "license": "MIT",
   "devDependencies": {

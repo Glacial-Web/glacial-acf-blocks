@@ -15,55 +15,54 @@
  */
 
 $className = 'pillar-link';
-if (!empty($block['className'])) {
-    $className .= ' ' . $block['className'];
+if ( ! empty( $block['className'] ) ) {
+	$className .= ' ' . $block['className'];
 }
 
 $id = 'pillar-link-' . $block['id'];
-if (!empty($block['anchor'])) {
-    $id = $block['anchor'];
+if ( ! empty( $block['anchor'] ) ) {
+	$id = $block['anchor'];
 }
 
-if (have_rows('pillar_links')):
-    $counter = 0;
-    ?>
+if ( have_rows( 'pillar_links' ) ):
+	$counter = 0;
+	?>
 
-    <div class="flex-pillar-links">
+	<div class="flex-pillar-links">
 
-        <?php while (have_rows('pillar_links')): the_row() ?>
-            <?php //vars
-            $link = get_sub_field('link');
-            $bg_image = get_sub_field('background_image');
-            $size = 'link-background';
-            $img_url = wp_get_attachment_image_url($bg_image['id'], $size);
-            ?>
+		<?php while ( have_rows( 'pillar_links' ) ): the_row() ?>
+			<?php //vars
+			$link     = get_sub_field( 'link' );
+			$bg_image = get_sub_field( 'background_image' );
+			$size     = 'link-background';
+			$img_url  = wp_get_attachment_image_url( $bg_image['id'], $size );
+			?>
 
-            <div id="<?php echo esc_attr($id); ?>"
-                    class="pillar-link-div <?php echo 'pillar-link-bg-' . $counter . ' ' . esc_attr($className); ?>">
+			<div id="<?php echo esc_attr( $id ); ?>"
+			     class="pillar-link-div <?php echo 'pillar-link-bg-' . $counter . ' ' . esc_attr( $className ); ?>">
 
-                <a href="<?php echo $link['url']; ?>" title="<?php $link['title']; ?>">
-                        <div class="pillar-link-overlay">
-                        </div>
+				<a href="<?php echo $link['url']; ?>" title="<?php $link['title']; ?>">
+					<div class="pillar-link-overlay">
+					</div>
 
-                        <div class="pillar-link-text"><?php echo $link['title']; ?></div>
+					<div class="pillar-link-text"><?php echo $link['title']; ?></div>
+				</a>
+			</div>
 
-                </a>
-            </div>
+			<style type="text/css">
 
-            <style type="text/css">
+				.pillar-link-bg-<?php echo $counter; ?> {
+					background: url("<?php echo $img_url; ?>");
+					background-size: cover;
+					background-position: center;
+				}
 
-                .pillar-link-bg-<?php echo $counter; ?> {
-                    background: url("<?php echo $img_url; ?>");
-                    background-size: cover;
-                    background-position: center;
-                }
+			</style>
 
-            </style>
+			<?php
+			$counter ++;
+		endwhile; ?>
 
-            <?php
-            $counter++;
-        endwhile; ?>
-    </div>
-
+	</div>
 
 <?php endif; ?>
