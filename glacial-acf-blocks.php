@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Glacial ACF Blocks
  * Plugin URI:        https://gregconrad.net
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       A plugin full of helpful WordPress Gutenberg Blocks built with Advanced Custom Fields
  * Version:           1.0.0
  * Author:            Greg Conrad
  * Author URI:        https://gregconad.net
@@ -79,4 +79,5 @@ function run_glacial_acf_blocks() {
 	$plugin->run();
 
 }
+
 run_glacial_acf_blocks();
