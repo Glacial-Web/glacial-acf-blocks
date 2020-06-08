@@ -68,7 +68,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/block-pillar-links"
+                "value": "acf\/glacf-pillar-links"
             }
         ]
     ],
@@ -80,5 +80,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1591627568
+    "modified": 1591636080
 }

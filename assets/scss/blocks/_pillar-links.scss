@@ -1,7 +1,7 @@
 .flex-pillar-links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-top: 2em;
 }
 
@@ -22,10 +22,16 @@
 .pillar-link-div:hover {
     box-shadow: 0 1px 1px 0 rgba(41,48,55,0.17);
     background-position: 51%;
-}
 
-.pillar-link-div:hover .pillar-link-text {
-    color: #9b9b9b;
+	.pillar-link-text {
+		color: #9b9b9b;
+	}
+
+	.pillar-link-overlay {
+		background: rgba(0,0,0,0.1);
+	}
+
+
 }
 
 .pillar-link-div a {

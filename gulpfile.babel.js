@@ -323,32 +323,6 @@ gulp.task( 'clearCache', function( done ) {
 });
 
 /**
- * WP POT Translation File Generator.
- *
- * This task does the following:
- * 1. Gets the source of all the PHP files
- * 2. Sort files in stream by path or any custom sort comparator
- * 3. Applies wpPot with the variable set at the top of this file
- * 4. Generate a .pot file of i18n that can be used for l10n to build .mo file
- */
-gulp.task( 'translate', () => {
-	return gulp
-		.src( config.watchPhp )
-		.pipe( sort() )
-		.pipe(
-			wpPot({
-				domain: config.textDomain,
-				package: config.packageName,
-				bugReport: config.bugReport,
-				lastTranslator: config.lastTranslator,
-				team: config.team
-			})
-		)
-		.pipe( gulp.dest( config.translationDestination + '/' + config.translationFile ) )
-		.pipe( notify({ message: '\n\n✅  ===> TRANSLATE — completed!\n', onLast: true }) );
-});
-
-/**
  * Watch Tasks.
  *
  * Watches for file changes and runs specific tasks.

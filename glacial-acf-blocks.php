@@ -67,4 +67,20 @@ function glacial_json_load_point( $glacf_path ) {
 	return $glacf_path;
 }
 
-require_once (plugin_dir_path(__FILE__) . '/register-blocks/register-blocks.php');
+require_once (plugin_dir_path(__FILE__) . '/register-blocks.php');
+
+function glacf_blocks_template( $block ) {
+	$glacf_temp = str_replace( "acf/", "", $block['name'] );
+	// Look for a file in theme
+
+	if ( $theme_template = locate_template( 'block-templates/' . $glacf_temp . '.php' ) ) {
+		require $theme_template;
+	} else {
+		// Nothing found, let's look in our plugin
+		$block_template  = plugin_dir_path( __FILE__ ) . 'block-templates/' . $glacf_temp . '.php';
+		if ( file_exists( $block_template ) ) {
+			require $block_template;
+		}
+	}
+
+}
