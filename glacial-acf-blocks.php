@@ -8,20 +8,19 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://gregconad.net
- * @since             1.0.0
+ * @link              https://glacial.com
+ * @since             0.9.0
  * @package           Glacial_Acf_Blocks
  *
  * @wordpress-plugin
  * Plugin Name:       Glacial ACF Blocks
- * Plugin URI:        https://gregconrad.net
- * Description:       A plugin full of helpful WordPress Gutenberg Blocks built with Advanced Custom Fields
- * Version:           1.0.0
- * Author:            Greg Conrad
- * Author URI:        https://gregconad.net
+ * Description:       A plugin full of helpful Gutenberg Blocks built with Advanced Custom Fields
+ * Version:           0.9.0
+ * Author:            Glacial Multimedia
+ * Author URI:        https://glacial.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       glacial-acf-blocks
+ * Text Domain:       glacf
  * Domain Path:       /languages
  */
 
@@ -30,54 +29,42 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/**
- * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
- */
-define( 'GLACIAL_ACF_BLOCKS_VERSION', '1.0.0' );
-
-/**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-glacial-acf-blocks-activator.php
- */
-function activate_glacial_acf_blocks() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-glacial-acf-blocks-activator.php';
-	Glacial_Acf_Blocks_Activator::activate();
+function glacf_block_categories( $categories, $post ) {
+	return array_merge( $categories, array(
+		array(
+			'slug'  => 'glacial-blocks',
+			'title' => __( 'Glacial Blocks', 'glacial-blocks' ),
+		)
+	) );
 }
 
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-glacial-acf-blocks-deactivator.php
- */
-function deactivate_glacial_acf_blocks() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-glacial-acf-blocks-deactivator.php';
-	Glacial_Acf_Blocks_Deactivator::deactivate();
+add_filter(
+	'block_categories',
+	'glacf_block_categories',
+	10,
+	2
+);
+
+// Save ACF JSON
+add_filter( 'acf/settings/save_json', 'glacial_json_save_point' );
+function glacial_json_save_point( $glacf_path ) {
+	// update path
+	$glacf_path = plugin_dir_path( __FILE__ ) . '/glacial-acf-json';
+
+	// return
+	return $glacf_path;
 }
 
-register_activation_hook( __FILE__, 'activate_glacial_acf_blocks' );
-register_deactivation_hook( __FILE__, 'deactivate_glacial_acf_blocks' );
+// Load ACF JSON
+add_filter( 'acf/settings/load_json', 'glacial_json_load_point' );
+function glacial_json_load_point( $glacf_path ) {
+	// remove original path (optional)
+	unset( $glacf_path[0] );
+	// append path
+	$glacf_path[] = plugin_dir_path( __FILE__ ) . '/glacial-acf-json';
 
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-glacial-acf-blocks.php';
-
-/**
- * Begins execution of the plugin.
- *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    1.0.0
- */
-function run_glacial_acf_blocks() {
-
-	$plugin = new Glacial_Acf_Blocks();
-	$plugin->run();
-
+	// return
+	return $glacf_path;
 }
 
-run_glacial_acf_blocks();
+require_once (plugin_dir_path(__FILE__) . '/register-blocks/register-blocks.php');

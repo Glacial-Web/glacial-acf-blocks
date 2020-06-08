@@ -10,7 +10,7 @@ function glacial_acf_register_blocks() {
 			'title'           => __( 'Pillar Page Links' ),
 			'description'     => __( 'Link boxes with a background image' ),
 			'render_template' => '/acf-blocks/block-pillar-links.php',
-			'category'        => 'formatting',
+			'category'        => 'glacial-blocks',
 			'icon'            => 'layout',
 			'keywords'        => array( 'pillar', 'links', 'buttons' ),
 			'mode'            => true,
@@ -21,6 +21,8 @@ function glacial_acf_register_blocks() {
 	}
 
 }
+
+
 
 
 
