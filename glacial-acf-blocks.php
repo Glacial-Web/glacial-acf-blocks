@@ -20,7 +20,6 @@
  * Author URI:        https://glacial.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       glacf
  * Domain Path:       /languages
  */
 
@@ -69,6 +68,8 @@ function glacial_json_load_point( $glacf_path ) {
 
 require_once (plugin_dir_path(__FILE__) . '/register-blocks.php');
 
+// This is the callback function of our register block function.
+// It's how we get our template
 function glacf_blocks_template( $block ) {
 	$glacf_temp = str_replace( "acf/", "", $block['name'] );
 	// Look for a file in theme

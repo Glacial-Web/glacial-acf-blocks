@@ -13,16 +13,11 @@
  *      6. Watches files for changes in PHP.
  *      7. Corrects the line endings.
  *      8. InjectCSS instead of browser page reload.
- *      9. Generates .pot file for i18n and l10n.
  *
- * @tutorial https://github.com/ahmadawais/WPGulp
- * @author Ahmad Awais <https://twitter.com/MrAhmadAwais/>
  */
 
 /**
  * Load WPGulp Configuration.
- *
- * TODO: Customize your project in the wpgulp.js file.
  */
 const config = require( './wpgulp.config.js' );
 
@@ -135,7 +130,7 @@ gulp.task( 'styles', () => {
 		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
 		.pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
 		.pipe( rename({ suffix: '.min' }) )
-		.pipe( minifycss({ maxLineLen: 10 }) )
+		.pipe( minifycss({ maxLineLen: 0 }) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
