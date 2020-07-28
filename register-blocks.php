@@ -21,6 +21,22 @@ function glacial_acf_register_blocks() {
 			},*/
 		) );
 
+		acf_register_block_type( array(
+			'name'            => 'glacf-testimonial',
+			'title'           => __( 'Testimonial Block' ),
+			'description'     => __( 'Block in which to write a testimonial' ),
+			//'render_template' => '/block-templates/glacf-pillar-links.php',
+			'render_callback' => 'glacf_blocks_template',
+			'category'        => 'glacial-blocks',
+			'icon'            => 'smiley',
+			'keywords'        => array( 'review', 'testimonial', 'patient', 'client' ),
+			'mode'            => false,
+			'enqueue_style'   => plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css',
+			/*'enqueue_assets'  => function () {
+				wp_enqueue_style( 'glacf-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.css' );
+			},*/
+		) );
+
 	}
 
 }

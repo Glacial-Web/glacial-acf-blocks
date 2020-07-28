@@ -25,6 +25,7 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 if ( have_rows( 'pillar_links' ) ):
+	// Use this to change background image css of each block. Could have used row_index.
 	$counter = 0;
 	?>
 
@@ -41,7 +42,7 @@ if ( have_rows( 'pillar_links' ) ):
 			<div id="<?php echo esc_attr( $id ); ?>"
 			     class="pillar-link-div <?php echo 'pillar-link-bg-' . $counter . ' ' . esc_attr( $className ); ?>">
 
-				<a href="<?php echo $link['url']; ?>" title="<?php $link['title']; ?>">
+				<a href="<?php echo $link['url']; ?>" title="<?php echo $link['title']; ?>">
 					<div class="pillar-link-overlay">
 					</div>
 
