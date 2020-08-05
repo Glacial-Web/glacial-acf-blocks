@@ -74,6 +74,7 @@ class Glacial_Acf_Blocks_Admin {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/glacial-acf-blocks-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css', array(), $this->version, 'all' );
 
 	}
 
@@ -101,3 +102,4 @@ class Glacial_Acf_Blocks_Admin {
 	}
 
 }
+

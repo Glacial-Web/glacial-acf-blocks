@@ -1,4 +1,12 @@
 <?php
+add_action( 'wp_enqueue_scripts', 'glacial_acf_register_style' );
+add_action('admin_enqueue_scripts', 'glacial_acf_register_style');
+function glacial_acf_register_style() {
+	wp_enqueue_style( 'glacf-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
+}
+
+
+
 // Register Blocks
 add_action( 'acf/init', 'glacial_acf_register_blocks' );
 function glacial_acf_register_blocks() {
@@ -14,8 +22,8 @@ function glacial_acf_register_blocks() {
 			'category'        => 'glacial-blocks',
 			'icon'            => 'layout',
 			'keywords'        => array( 'pillar', 'links', 'buttons' ),
-			'mode'            => true,
-			'enqueue_style'   => plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css',
+			'mode'            => 'auto',
+//			'enqueue_style'   => plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css',
 			/*'enqueue_assets'  => function () {
 				wp_enqueue_style( 'glacf-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.css' );
 			},*/
@@ -30,8 +38,8 @@ function glacial_acf_register_blocks() {
 			'category'        => 'glacial-blocks',
 			'icon'            => 'smiley',
 			'keywords'        => array( 'review', 'testimonial', 'patient', 'client' ),
-			'mode'            => false,
-			'enqueue_style'   => plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css',
+			'mode'            => 'auto',
+//			'enqueue_style'   => plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css',
 			/*'enqueue_assets'  => function () {
 				wp_enqueue_style( 'glacf-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.css' );
 			},*/

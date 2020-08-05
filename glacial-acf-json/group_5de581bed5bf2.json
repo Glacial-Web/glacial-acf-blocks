@@ -19,7 +19,7 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Link",
             "sub_fields": [
                 {
                     "key": "field_5de581d043cd7",
@@ -61,6 +61,47 @@
                     "mime_types": ""
                 }
             ]
+        },
+        {
+            "key": "field_5f237001d59db",
+            "label": "Links Per Row",
+            "name": "links_per_row",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 2,
+            "max": 5,
+            "step": 1
+        },
+        {
+            "key": "field_5f237299d78c9",
+            "label": "Box Height",
+            "name": "box_height",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 300,
+            "min": 100,
+            "max": 500,
+            "step": "",
+            "prepend": "",
+            "append": "px"
         }
     ],
     "location": [
@@ -80,5 +121,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1591639551
+    "modified": 1596158700
 }

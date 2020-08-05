@@ -85,3 +85,6 @@ function glacf_blocks_template( $block ) {
 	}
 
 }
+
+include (plugin_dir_path(__FILE__) . '/admin/class-glacial-acf-blocks-admin.php');
+
