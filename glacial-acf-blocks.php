@@ -66,7 +66,7 @@ function glacial_json_load_point( $glacf_path ) {
 	return $glacf_path;
 }
 
-require_once (plugin_dir_path(__FILE__) . '/register-blocks.php');
+require_once (plugin_dir_path(__FILE__) . 'register-blocks.php');
 
 // This is the callback function of our register block function.
 // It's how we get our template
@@ -86,5 +86,7 @@ function glacf_blocks_template( $block ) {
 
 }
 
+
 include (plugin_dir_path(__FILE__) . '/admin/class-glacial-acf-blocks-admin.php');
 
+add_image_size('glacf-links', '600');

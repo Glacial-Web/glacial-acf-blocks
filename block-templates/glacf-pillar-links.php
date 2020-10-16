@@ -25,11 +25,23 @@ if ( !empty( $block['anchor'] ) ) {
 }
 
 $links_per_row = get_field('links_per_row');
-$link_width = 100/$links_per_row - 5; ?>
+if(!$links_per_row) {
+	$links_per_row = 3;
+}
+
+$link_width = 100/$links_per_row - 5;
+
+$link_height = get_field('box_height');
+if(!$link_height) {
+	$link_height = 260;
+}
+
+?>
 
 <style type="text/css">
 	.pillar-link-div {
 		width: <?php echo $link_width . '%'; ?>;
+		height: <?php echo $link_height . 'px'; ?>
 	}
 </style>
 
@@ -44,9 +56,10 @@ $link_width = 100/$links_per_row - 5; ?>
 			<?php //vars
 			$link     = get_sub_field( 'link' );
 			$bg_image = get_sub_field( 'background_image' );
-			$size     = 'link-background';
+			$size     = 'medium_large';
 			$img_url  = wp_get_attachment_image_url( $bg_image['id'], $size );
 			?>
+
 				<div id="<?php echo esc_attr( $id ); ?>"
 					 class="pillar-link-div <?php echo 'pillar-link-bg-' . $counter . ' ' . esc_attr( $className ); ?>">
 
@@ -59,13 +72,12 @@ $link_width = 100/$links_per_row - 5; ?>
 				</div>
 
 			<style type="text/css">
-
 				.pillar-link-bg-<?php echo $counter; ?> {
 					background-size: cover;
 					background: url("<?php echo $img_url; ?>");
 					background-position: center;
+					background-repeat: no-repeat;
 				}
-
 			</style>
 
 			<?php
