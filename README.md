@@ -12,6 +12,7 @@ $ cd glacial-acf-blocks
 ```
 To use local WP install change projectURL in wpgulp.config.js file. then run:
 ```bash
+$ npm install
 $ npm start
 ```
 

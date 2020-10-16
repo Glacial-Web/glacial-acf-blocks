@@ -43,6 +43,23 @@ if(!$link_height) {
 		width: <?php echo $link_width . '%'; ?>;
 		height: <?php echo $link_height . 'px'; ?>
 	}
+
+
+	@media (max-width: 991px) {
+
+		.pillar-link-div {
+			width: 48%;
+		}
+	}
+
+	@media (max-width: 479px) {
+
+		.pillar-link-div {
+			width: 100%;
+			height: 200px;
+		}
+	}
+
 </style>
 
 <?php if ( have_rows( 'pillar_links' ) ):
