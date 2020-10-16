@@ -1,5 +1,7 @@
 <?php
+
 add_action( 'wp_enqueue_scripts', 'glacial_acf_register_style' );
+
 add_action('admin_enqueue_scripts', 'glacial_acf_register_style');
 function glacial_acf_register_style() {
 	wp_enqueue_style( 'glacf-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
