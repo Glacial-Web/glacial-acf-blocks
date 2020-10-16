@@ -24,7 +24,7 @@ Download zip and install in WordPress admin
 * Register your block in register-blocks.php
     * Rendering blocks is done with callback function in main plugin file (glacial-acf-block.php).
     * In acf_register_block_type() use:
-        * 'render_callback' => 'glacf_blocks_template',
+        * 'render_callback' => 'glacial_blocks_template',
         * 'category'        => 'glacial-blocks',
         * No need to enqueue style as this is done via wp_enqueue_style
 * PHP block templates go in /block-templates
