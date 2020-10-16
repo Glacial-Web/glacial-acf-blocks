@@ -57,7 +57,7 @@ function glacial_json_save_point( $glacf_path ) {
 // Load ACF JSON
 add_filter( 'acf/settings/load_json', 'glacial_json_load_point' );
 function glacial_json_load_point( $glacf_path ) {
-	// remove original path (optional)
+	// remove original path
 	unset( $glacf_path[0] );
 	// append path
 	$glacf_path[] = plugin_dir_path( __FILE__ ) . '/glacial-acf-json';
@@ -70,7 +70,7 @@ require_once (plugin_dir_path(__FILE__) . 'register-blocks.php');
 
 // This is the callback function of our register block function.
 // It's how we get our template
-function glacf_blocks_template( $block ) {
+function glacial_blocks_template( $block ) {
 	$glacf_temp = str_replace( "acf/", "", $block['name'] );
 	// Look for a file in theme
 
