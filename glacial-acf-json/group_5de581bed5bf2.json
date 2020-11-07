@@ -1,6 +1,6 @@
 {
     "key": "group_5de581bed5bf2",
-    "title": "Block: Pillar Links",
+    "title": "Glacial Block: Pillar Links",
     "fields": [
         {
             "key": "field_5de58327f7feb",
@@ -119,7 +119,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1597438280
+    "modified": 1603549708
 }

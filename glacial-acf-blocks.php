@@ -24,17 +24,21 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
+// Add Glacial category to WP block menu with hook
 function glacf_block_categories( $categories, $post ) {
-	return array_merge( $categories, array(
+	return array_merge(
 		array(
-			'slug'  => 'glacial-blocks',
-			'title' => __( 'Glacial Blocks', 'glacial-blocks' ),
-		)
-	) );
+			array(
+				'slug'  => 'glacial-blocks',
+				'title' => __( 'Glacial Blocks', 'glacial-blocks' ),
+			)
+		),
+		$categories
+	);
 }
 
 add_filter(
@@ -66,7 +70,8 @@ function glacial_json_load_point( $glacf_path ) {
 	return $glacf_path;
 }
 
-require_once (plugin_dir_path(__FILE__) . 'register-blocks.php');
+// this is where our blocks are registered
+require_once( plugin_dir_path( __FILE__ ) . 'register-blocks.php' );
 
 // This is the callback function of our register block function.
 // It's how we get our template
@@ -78,7 +83,7 @@ function glacial_blocks_template( $block ) {
 		require $theme_template;
 	} else {
 		// Nothing found, let's look in our plugin
-		$block_template  = plugin_dir_path( __FILE__ ) . 'block-templates/' . $glacf_temp . '.php';
+		$block_template = plugin_dir_path( __FILE__ ) . 'block-templates/' . $glacf_temp . '.php';
 		if ( file_exists( $block_template ) ) {
 			require $block_template;
 		}
@@ -86,7 +91,7 @@ function glacial_blocks_template( $block ) {
 
 }
 
+// Admin stuff... Not used yet
+include( plugin_dir_path( __FILE__ ) . '/admin/class-glacial-acf-blocks-admin.php' );
 
-include (plugin_dir_path(__FILE__) . '/admin/class-glacial-acf-blocks-admin.php');
-
-add_image_size('glacf-links', '600');
+add_image_size( 'glacf-links', '600' );
