@@ -1,0 +1,25 @@
+// Sticky Menu Block
+
+.glacial-sticky-menu {
+	position: sticky;
+	display: block;
+	color: #fff;
+	padding: 1em;
+	width: 100%;
+	top: 1px;
+	z-index: 2;
+
+	ul {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+
+	.inner-blocks {
+		margin-top: 1em;
+	}
+
+	&.shadow {
+		box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.44);
+	}
+}

@@ -1,16 +1,16 @@
 <?php
 // Enqueue our compiled CSS
-add_action( 'wp_enqueue_scripts', 'glacial_acf_register_style' );
-add_action( 'admin_enqueue_scripts', 'glacial_acf_register_style' );
+add_action( 'wp_enqueue_scripts', 'glacial_acf_register_style_front' );
+add_action( 'admin_enqueue_scripts', 'glacial_acf_register_style_admin' );
 
-function glacial_acf_register_style() {
+function glacial_acf_register_style_admin() {
 	wp_enqueue_style( 'glacial-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
-	if ( has_block( 'acf/glacf-popup' ) ) {
-		wp_register_script( 'micromodal', 'https://unpkg.com/micromodal/dist/micromodal.min.js', array( 'jquery' ), null, true );
-		wp_enqueue_script( 'micromodal' );
-		wp_register_script( 'glacial-blocks-js', plugin_dir_url( __FILE__ ) . 'assets/js/glacial-blocks.min.js', array('jquery'), null, true );
-		wp_enqueue_script('glacial-blocks-js');
-	}
+}
+
+function glacial_acf_register_style_front() {
+	wp_enqueue_script( 'glacial-blocks-js', plugin_dir_url( __FILE__ ) . 'assets/js/glacial-blocks-main.min.js', null, null, false );
+	wp_enqueue_style( 'glacial-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
+
 }
 
 
@@ -22,6 +22,7 @@ function glacial_acf_register_style() {
 
 // Register Blocks
 add_action( 'acf/init', 'glacial_acf_register_blocks' );
+
 function glacial_acf_register_blocks() {
 
 	if ( function_exists( 'acf_register_block_type' ) ) {
@@ -67,15 +68,20 @@ function glacial_acf_register_blocks() {
 		// Popup Block
 		acf_register_block_type(
 			array(
-				'name'            => 'glacf-popup',
-				'title'           => __( 'Popup Block' ),
-				'description'     => __( 'A popup block' ),
+				'name'            => 'glacf-sticky-menu',
+				'title'           => __( 'Sticky Menu' ),
+				'description'     => __( 'A sticky menu for on page links' ),
 				//'render_template' => '/block-templates/glacf-pillar-links.php',
 				'render_callback' => 'glacial_blocks_template',
 				'category'        => 'glacial-blocks',
 				'icon'            => 'button',
 				'keywords'        => array( 'pillar', 'links', 'buttons' ),
-				'mode'            => 'auto',
+				'mode'            => 'preview',
+				'supports'			=> array(
+					'align' => true,
+					'mode' => false,
+					'jsx' => true
+				),
 //			'enqueue_style'   => plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css',
 				'enqueue_assets'  => function () {
 					/*wp_register_script( 'micromodal', 'https://unpkg.com/micromodal/dist/micromodal.min.js', array( 'jquery' ), null, true );
