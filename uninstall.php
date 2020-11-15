@@ -13,16 +13,20 @@
  * - Repeat with other user roles. Best directly by using the links/query string parameters.
  * - Repeat things for multisite. Once for a single site in the network, once sitewide.
  *
- * This file may be updated more in future version of the Boilerplate; however, this is the
- * general skeleton and outline for how the file should work.
  *
- * For more information, see the following discussion:
- * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
+ * @link              https://glacial.com
+ * @since             0.9.0
+ * @package           Glacial_Acf_Blocks
  *
- * @link       https://gregconad.net
- * @since      1.0.0
- *
- * @package    Glacial_Acf_Blocks
+ * @wordpress-plugin
+ * Plugin Name:       Glacial ACF Blocks
+ * Description:       A plugin full of helpful Gutenberg Blocks built with Advanced Custom Fields
+ * Version:           0.9.0
+ * Author:            Glacial Multimedia
+ * Author URI:        https://glacial.com
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Domain Path:       /languages
  */
 
 // If uninstall not called from WordPress, then exit.
