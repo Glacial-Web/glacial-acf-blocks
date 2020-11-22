@@ -4,15 +4,37 @@
 	position: sticky;
 	display: block;
 	color: #fff;
-	padding: 1em;
+	padding: 2em 1em;
 	width: 100%;
 	top: 1px;
 	z-index: 2;
+
+	&.alignwide, &.alignfull {
+		position: sticky;
+	}
 
 	ul {
 		display: flex;
 		justify-content: space-around;
 		flex-wrap: wrap;
+
+		li {
+			list-style: none;
+		}
+
+		a {
+			text-decoration: none;
+			min-width: 250px;
+			text-align: center;
+		}
+
+		a.sticky-menu-custom {
+			transition: 0.2s;
+			padding: 20px 50px;
+			display: block;
+
+		}
+
 	}
 
 	.inner-blocks {
