@@ -3,6 +3,22 @@
     "title": "Glacial Block: Sticky Menu",
     "fields": [
         {
+            "key": "field_5fba931f3643e",
+            "label": "Container",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5faf3888c7ed0",
             "label": "Top Position",
             "name": "top_position",
@@ -24,8 +40,27 @@
             "step": 1
         },
         {
+            "key": "field_5fba8a0e6b631",
+            "label": "Add Other Blocks",
+            "name": "add_other_blocks",
+            "type": "true_false",
+            "instructions": "Add any other block inside the sticky container",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5fb08737e3ffa",
-            "label": "Background Color",
+            "label": "Menu Background Color",
             "name": "background_color",
             "type": "color_picker",
             "instructions": "",
@@ -37,6 +72,21 @@
                 "id": ""
             },
             "default_value": "#eee"
+        },
+        {
+            "key": "field_5fb09627b8ee3",
+            "label": "Text Color",
+            "name": "text_color",
+            "type": "color_picker",
+            "instructions": "Changes the text color of any text inside the container but not the button text color.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000"
         },
         {
             "key": "field_5fb08b7782e09",
@@ -58,6 +108,196 @@
             "ui_off_text": "Off"
         },
         {
+            "key": "field_5faf37c45beaf",
+            "label": "Adjust Overflow",
+            "name": "overflow",
+            "type": "true_false",
+            "instructions": "Some overflow settings will cause sticky menu to not work. Turn this on to resolve issues of the menu not being 'sticky'.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "On",
+            "ui_off_text": "Off"
+        },
+        {
+            "key": "field_5fba93323643f",
+            "label": "Button Style",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5fba820ff98fa",
+            "label": "Use Site Style",
+            "name": "use_site_style",
+            "type": "true_false",
+            "instructions": "If yes, buttons will use ui-button class for style. This style will NOT show up in editor but will on front-end.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5fba84b5c4884",
+            "label": "Button Border Radius",
+            "name": "border_radius",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fba820ff98fa",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": 50,
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_5fba7eba0c98b",
+            "label": "Button Background",
+            "name": "button_background",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fba820ff98fa",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#999"
+        },
+        {
+            "key": "field_5fba7ed20c98c",
+            "label": "Button Text Color",
+            "name": "button_text_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fba820ff98fa",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#ffffff"
+        },
+        {
+            "key": "field_5fba7ee30c98d",
+            "label": "Button Hover Background",
+            "name": "button_hover_background",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fba820ff98fa",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#111"
+        },
+        {
+            "key": "field_5fba7ef80c98e",
+            "label": "Button Hover Text",
+            "name": "button_hover_text",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fba820ff98fa",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#ffffff"
+        },
+        {
+            "key": "field_5fba93d67cda9",
+            "label": "Links",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5faf38c0c3009",
             "label": "Links",
             "name": "links",
@@ -74,7 +314,7 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Button",
             "sub_fields": [
                 {
                     "key": "field_5faf38cbc300a",
@@ -115,40 +355,6 @@
                     "maxlength": ""
                 }
             ]
-        },
-        {
-            "key": "field_5faf37c45beaf",
-            "label": "Adjust Overflow",
-            "name": "overflow",
-            "type": "true_false",
-            "instructions": "Some overflow settings will cause sticky menu to not work. Turn this on to resolve issues of the menu not being 'sticky'.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "On",
-            "ui_off_text": "Off"
-        },
-        {
-            "key": "field_5fb09627b8ee3",
-            "label": "Text Color",
-            "name": "text_color",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#000"
         }
     ],
     "location": [
@@ -168,5 +374,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1605408319
+    "modified": 1606063081
 }

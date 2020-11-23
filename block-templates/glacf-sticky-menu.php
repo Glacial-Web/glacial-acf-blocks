@@ -14,9 +14,32 @@
  * Author URL: https://www.glacial.com/
  */
 
+
+// Other container options
+$top_position     = get_field( 'top_position' ) ?: '0';
+$overflow         = get_field( 'overflow' );
+$add_other_blocks = get_field( 'add_other_blocks' );
+$sticky_on_mobile = get_field('sticky_on_mobile');
+// Container colors and shadow
+$text_color       = get_field( 'text_color' ) ?: '#000';
+$background_color = get_field( 'background_color' ?: '#999' );
+$shadow           = get_field( 'shadow' );
+// Use class name ui-button or customize button
+$use_site_style = get_field( 'use_site_style' );
+// Button styles
+$border_radius           = get_field( 'border_radius' ?: '0' );
+$button_background       = get_field( 'button_background' ?: 'red' );
+$button_text_color       = get_field( 'button_text_color' ?: 'white' );
+$button_hover_background = get_field( 'button_hover_background' ?: 'green' );
+$button_hover_text       = get_field( 'button_hover_text' ?: 'white' );
+
 $className = 'pillar-link';
 if ( !empty( $block['className'] ) ) {
 	$className .= ' ' . $block['className'];
+}
+// Add shadow class if on
+if ( $shadow ) {
+	$className .= ' shadow';
 }
 
 $id = 'menu-' . $block['id'];
@@ -24,35 +47,65 @@ if ( !empty( $block['anchor'] ) ) {
 	$id = $block['anchor'];
 }
 
-$text_color = get_field('text_color') ?: '#000';
-$background_color = get_field('background_color');
-$top_position = get_field( 'top_position' ) ?: '0';
-$overflow     = get_field( 'overflow' );
-$shadow = get_field('shadow');
-//$links = get_field();
-
-if($shadow) {
-	$classes = 'shadow';
+if ( !empty( $block['align'] ) ) {
+	$className .= ' align' . $block['align'];
 }
-else {
-	$classes = ' ';
+
+// Change class name for custom styling
+if ( $use_site_style ) {
+	$button_class = 'ui-button';
+} else {
+	$button_class = 'sticky-menu-custom';
 }
 
 ?>
 
 
-
 <style>
 	<?php echo '#' . $id; ?>
 	{
-		top:  <?php echo $top_position . 'px'; ?>;
-		color: <?php echo $text_color; ?>;
-		background: <?php echo $background_color; ?>;
+		top:
+	<?php echo $top_position . 'px'; ?>
+	;
+		color:
+	<?php echo $text_color; ?>
+	;
+		background:
+	<?php echo $background_color; ?>
+	;
 
 	}
+
+	<?php if (!$use_site_style): // If NOT using style on site ?>
+
+	<?php echo '#' . $id . ' a.sticky-menu-custom'; ?>
+	{
+		background:
+	<?php echo $button_background; ?>
+	;
+		color:
+	<?php echo $button_text_color; ?>
+	;
+		border-radius:
+	<?php echo $border_radius . 'px'; ?>
+	;
+	}
+
+	<?php echo '#' . $id . ' a.sticky-menu-custom:hover'; ?>
+	{
+		background:
+	<?php echo $button_hover_background; ?>
+	;
+		color:
+	<?php echo $button_hover_text; ?>
+	;
+	}
+
+
+	<?php endif; ?>
 </style>
 
-<div id="<?php echo $id; ?>" class="glacial-sticky-menu <?php echo $classes; ?>">
+<div id="<?php echo $id; ?>" class="glacial-sticky-menu <?php echo esc_attr( $className ); ?>">
 
 	<?php if ( have_rows( 'links' ) ): ?>
 		<ul>
@@ -64,7 +117,8 @@ else {
 				$button_text = get_sub_field( 'button_text' );
 				?>
 				<li>
-					<a class="ui-button" href="#<?php echo $anchor_id; ?>"><?php echo $button_text; ?></a>
+					<a class="<?php echo $button_class; ?>"
+					   href="#<?php echo $anchor_id; ?>"><?php echo $button_text; ?></a>
 				</li>
 
 			<?php endwhile; ?>
@@ -73,9 +127,11 @@ else {
 
 	<?php endif; ?>
 
-	<div class="sticky-menu-inner-blocks">
-		<?php echo '<InnerBlocks />'; ?>
-	</div>
+	<?php if ( $add_other_blocks ): ?>
+		<div class="sticky-menu-inner-blocks">
+			<?php echo '<InnerBlocks />'; ?>
+		</div>
+	<?php endif; ?>
 
 </div>
 
