@@ -29,7 +29,7 @@ if(!$links_per_row) {
 	$links_per_row = 3;
 }
 
-$link_width = 100/$links_per_row - 5;
+$link_width = (100/$links_per_row) - 2;
 
 $link_height = get_field('box_height');
 if(!$link_height) {
@@ -64,6 +64,7 @@ $hover_opacity = get_field('hover_opacity');
 	}
 	.pillar-link-div {
 		width: <?php echo $link_width . '%'; ?>;
+		margin-right: 2%;
 	}
 
 	.pillar-link-div a {

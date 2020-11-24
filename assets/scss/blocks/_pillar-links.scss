@@ -2,7 +2,7 @@
 .flex-pillar-links {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: flex-start;
 	margin-top: 2em;
 }
 
@@ -74,6 +74,11 @@ width: 100%;
 }
 
 @media (max-width: 479px) {
+
+
+	.pillar-link-div {
+		margin-bottom: 10em;
+	}
 
 	.pillar-link-div {
 		width: 100%;
