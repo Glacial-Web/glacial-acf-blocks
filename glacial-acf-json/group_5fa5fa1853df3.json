@@ -355,6 +355,23 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_5fbc82e9b9d41",
+            "label": "HTML",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Copy and paste this where you want the button to link and replace \"your anchor\" with the \"Anchor ID\" of your button.\r\n\r\n<a id=\"your anchor\" class=\"anchor-link\"><\/a>",
+            "new_lines": "br",
+            "esc_html": 1
         }
     ],
     "location": [
@@ -374,5 +391,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1606063081
+    "modified": 1606190028
 }

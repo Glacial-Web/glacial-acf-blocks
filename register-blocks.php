@@ -9,7 +9,7 @@ function glacial_acf_register_style_admin() {
 }
 // Frontend only
 function glacial_acf_register_style_front() {
-	wp_enqueue_script( 'glacial-blocks-js', plugin_dir_url( __FILE__ ) . 'assets/js/glacial-blocks-main.min.js', null, null, false );
+	wp_enqueue_script( 'glacial-blocks-js', plugin_dir_url( __FILE__ ) . 'assets/js/glacial-blocks-main.min.js', 'jquery', null, true );
 	wp_enqueue_style( 'glacial-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
 
 }

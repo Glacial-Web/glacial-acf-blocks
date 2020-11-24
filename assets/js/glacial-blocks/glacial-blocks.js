@@ -8,3 +8,12 @@ function getParents(el) {
 	}
 	return parents;
 }
+/*
+
+var offset = jQuery('.glacial-sticky-menu').height();
+console.log(offset);
+var scrollto = offset - 60; // minus fixed header height
+console.log(scrollto);
+jQuery('html, body').animate({scrollTop:offset}, 0);
+*/
+
