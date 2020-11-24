@@ -19,7 +19,7 @@
  * @package           Glacial_Acf_Blocks
  *
  * @wordpress-plugin
- * 
+ *
  */
 
 // If uninstall not called from WordPress, then exit.
