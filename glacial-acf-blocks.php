@@ -47,7 +47,7 @@ add_filter(
 	10,
 	2
 );
-/*
+
 // Save ACF JSON
 add_filter( 'acf/settings/save_json', 'glacial_json_save_point' );
 function glacial_json_save_point( $glacf_path ) {
@@ -56,7 +56,7 @@ function glacial_json_save_point( $glacf_path ) {
 
 	// return
 	return $glacf_path;
-}*/
+}
 
 // Load ACF JSON
 add_filter( 'acf/settings/load_json', 'glacial_json_load_point' );
@@ -94,4 +94,4 @@ function glacial_blocks_template( $block ) {
 // Admin stuff... Not used yet
 //include( plugin_dir_path( __FILE__ ) . '/admin/class-glacial-acf-blocks-admin.php' );
 
-add_image_size( 'glacf-links', '600' );
+add_image_size( 'glacial-links', 600, 600, true );

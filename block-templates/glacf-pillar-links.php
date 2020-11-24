@@ -36,11 +36,38 @@ if(!$link_height) {
 	$link_height = 260;
 }
 
+$overlay_color = get_field('overlay_color');
+$text_color = get_field('text_color');
+$hover_text_color = get_field('hover_text_color');
+$overlay_opacity = get_field('overlay_opacity');
+$hover_opacity = get_field('hover_opacity');
+
 ?>
 
 <style type="text/css">
+
+	<?php echo '#' . $id ; ?> .pillar-link-text {
+		color: <?php echo $text_color; ?>;
+	}
+
+	<?php echo '#' . $id; ?> .pillar-link-div:hover .pillar-link-overlay {
+		opacity: <?php echo '.' . $hover_opacity; ?>;
+	}
+
+	<?php echo '#' . $id; ?> .pillar-link-overlay {
+		opacity: <?php echo '.' . $overlay_opacity;?>;
+		background: <?php echo $overlay_color; ?>;
+	}
+
+	<?php echo '#' . $id; ?> .pillar-link-div:hover .pillar-link-text {
+		color: <?php echo $hover_text_color; ?>;
+	}
 	.pillar-link-div {
 		width: <?php echo $link_width . '%'; ?>;
+	}
+
+	.pillar-link-div a {
+
 		height: <?php echo $link_height . 'px'; ?>
 	}
 
@@ -67,24 +94,24 @@ if(!$link_height) {
 	$counter = 0;
 	?>
 
-	<div class="flex-pillar-links">
+	<div id="<?php echo esc_attr( $id ); ?>" class="flex-pillar-links">
 
 		<?php while ( have_rows( 'pillar_links' ) ): the_row() ?>
 			<?php //vars
 			$link     = get_sub_field( 'link' );
 			$bg_image = get_sub_field( 'background_image' );
-			$size     = 'medium_large';
+			$size     = 'large';
 			$img_url  = wp_get_attachment_image_url( $bg_image['id'], $size );
 			?>
 
-				<div id="<?php echo esc_attr( $id ); ?>"
-					 class="pillar-link-div <?php echo 'pillar-link-bg-' . $counter . ' ' . esc_attr( $className ); ?>">
+				<div class="pillar-link-div">
+					<a href="<?php echo esc_url($link['url']); ?>" title="<?php echo $link['title']; ?>" target="<?php echo $link['target']; ?>"
+					   class="disable-link-admin <?php echo 'pillar-link-bg-' . $counter . ' ' . esc_attr( $className ); ?>">
 
-					<a href="<?php echo $link['url']; ?>" title="<?php echo $link['title']; ?>">
 						<div class="pillar-link-overlay">
 						</div>
-
 						<div class="pillar-link-text"><?php echo $link['title']; ?></div>
+
 					</a>
 				</div>
 
@@ -92,8 +119,6 @@ if(!$link_height) {
 				.pillar-link-bg-<?php echo $counter; ?> {
 					background-size: cover;
 					background: url("<?php echo $img_url; ?>");
-					background-position: center;
-					background-repeat: no-repeat;
 				}
 			</style>
 
@@ -103,4 +128,18 @@ if(!$link_height) {
 
 	</div>
 
+<?php endif; ?>
+
+<?php if (is_admin()): ?>
+<script>
+jQuery('.disable-link-admin').on('click', function (e) {
+	e.preventDefault();
+});
+</script>
+
+	<style>
+		.disable-link-admin:hover {
+			cursor: default;
+		}
+	</style>
 <?php endif; ?>

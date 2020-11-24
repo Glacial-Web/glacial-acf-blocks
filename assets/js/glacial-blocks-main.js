@@ -13,6 +13,7 @@ function getParents(el) {
 }
 /*
 
+
 var offset = jQuery('.glacial-sticky-menu').height();
 console.log(offset);
 var scrollto = offset - 60; // minus fixed header height

@@ -8,7 +8,10 @@ function getParents(el) {
 	}
 	return parents;
 }
+
+
 /*
+
 
 var offset = jQuery('.glacial-sticky-menu').height();
 console.log(offset);

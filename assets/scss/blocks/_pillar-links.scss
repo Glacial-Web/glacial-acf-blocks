@@ -1,66 +1,82 @@
 /* Pillar Links Block */
 .flex-pillar-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 2em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-top: 2em;
 }
 
 .pillar-link-overlay {
-    width: 100%;
-    height: 100%;
-    transition: 0.2s;
+	width: 100%;
+	height: 100%;
+	transition: 0.2s;
+	background: rgba(0,0,0,.3);
 }
 
 .pillar-link-div {
-
-    margin-bottom: 6em;
-    transition: 0.2s;
-    box-shadow: 4px 3px 6px 3px rgba(41,48,55,0.17);
+	margin-bottom: 6em;
+	transition: 0.2s;
+	box-shadow: 4px 3px 6px 3px rgba(41, 48, 55, 0.17);
 }
 
 .pillar-link-div:hover {
-    box-shadow: 0 1px 1px 0 rgba(41,48,55,0.17);
-    background-position: 51%;
+	box-shadow: 0 1px 1px 0 rgba(41, 48, 55, 0.17);
+
 
 	.pillar-link-text {
-		color: #9b9b9b;
+		color: #fff;
 	}
 
 	.pillar-link-overlay {
-		background: rgba(0,0,0,0.1);
+		opacity: 0.8;
 	}
 }
 
 .pillar-link-div a {
-    height: 100%;
-    width: 100%;
-    display: block;
-    text-decoration: none;
+	position: relative;
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 100%;
+	width: 100%;
+	display: block;
+	text-decoration: none;
+
+	&:hover {
+		background-position: 55%;
+	}
 }
 
 .pillar-link-text {
-    margin: auto;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.5em;
-    color: #333;
-    padding-top: 0.5em;
-    line-height: 1.3em;
-    transition: 0.2s;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+width: 100%;
+	top: 0;
+	height: 100%;
+	z-index: 12;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.5em;
+	color: #fff;
+	padding-top: 0.5em;
+	line-height: 1.3em;
+	transition: 0.2s;
+	opacity: 1;
 }
 
 @media (max-width: 991px) {
 
-    .pillar-link-div {
-        width: 48%;
-    }
+	.pillar-link-div {
+		width: 48%;
+	}
 }
 
 @media (max-width: 479px) {
 
-    .pillar-link-div {
-        width: 100%;
-        height: 200px;
-    }
+	.pillar-link-div {
+		width: 100%;
+		height: 200px;
+	}
 }
