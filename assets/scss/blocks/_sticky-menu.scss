@@ -1,5 +1,16 @@
 // Sticky Menu Block
 
+html {
+	scroll-behavior: smooth;
+}
+
+.anchor-link {
+	top: -148px;
+	display: block;
+	position: relative;
+	visibility: hidden;
+}
+
 .glacial-sticky-menu {
 	position: sticky;
 	display: block;
@@ -17,6 +28,7 @@
 		display: flex;
 		justify-content: space-around;
 		flex-wrap: wrap;
+		margin: 0 auto;
 
 		li {
 			list-style: none;
@@ -24,14 +36,15 @@
 
 		a {
 			text-decoration: none;
-			min-width: 250px;
+			min-width: 150px;
 			text-align: center;
 		}
 
 		a.sticky-menu-custom {
 			transition: 0.2s;
-			padding: 20px 50px;
+			padding: 5px 20px;
 			display: block;
+			margin-bottom: 10px;
 
 		}
 
