@@ -369,9 +369,9 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Copy and paste this where you want the button to link and replace \"your anchor\" with the \"Anchor ID\" of your button.\r\n\r\n<a id=\"your anchor\" class=\"anchor-link\"><\/a>",
+            "message": "Copy and paste this where you want the button to link and replace \"your-anchor\" with the \"Anchor ID\" of your button.\r\n\r\n<a id=\"your-anchor\" class=\"anchor-link\"><\/a>",
             "new_lines": "br",
-            "esc_html": 1
+            "esc_html": 0
         }
     ],
     "location": [
@@ -391,5 +391,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1606190028
+    "modified": 1606190306
 }
