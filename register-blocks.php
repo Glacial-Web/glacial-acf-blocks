@@ -3,23 +3,22 @@
 add_action( 'wp_enqueue_scripts', 'glacial_acf_register_style_front' );
 add_action( 'admin_enqueue_scripts', 'glacial_acf_register_style_admin' );
 
+// Admin only
 function glacial_acf_register_style_admin() {
 	wp_enqueue_style( 'glacial-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
 }
-
+// Frontend only
 function glacial_acf_register_style_front() {
 	wp_enqueue_script( 'glacial-blocks-js', plugin_dir_url( __FILE__ ) . 'assets/js/glacial-blocks-main.min.js', null, null, false );
 	wp_enqueue_style( 'glacial-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
 
 }
 
-
 /*
  * Block templates are called in glacf_blocks_template() in main plugin file
  * Use 'render_callback' instead of 'render_template'
  * CSS is enqueued above so no need to enqueue it in acf_register_block_type()
  */
-
 // Register Blocks
 add_action( 'acf/init', 'glacial_acf_register_blocks' );
 
