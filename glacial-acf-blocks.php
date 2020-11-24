@@ -92,6 +92,6 @@ function glacial_blocks_template( $block ) {
 }
 
 // Admin stuff... Not used yet
-include( plugin_dir_path( __FILE__ ) . '/admin/class-glacial-acf-blocks-admin.php' );
+//include( plugin_dir_path( __FILE__ ) . '/admin/class-glacial-acf-blocks-admin.php' );
 
 add_image_size( 'glacf-links', '600' );
