@@ -2,9 +2,9 @@
 WP plugin with collection Gutenberg Blocks built with Advanced Custom Fields. Includes dev environment with a local server, file watchers and hot reload of CSS, SASS, CSS prefixing, CSS/JS minification, image compression and auto saving of ACF setup JSON.
 
 :technologist:	:woman_technologist:
-## Install
+## Install Methods
 
-### 1. Clone Repo
+### 1. For Dev Work - Clone Repo
 ```bash
 $ cd wp-install/wp-content/plugins
 $ git clone https://github.com/gconrad0/glacial-acf-blocks
@@ -17,7 +17,7 @@ $ npm start
 ```
 
 
-### 2. WP Plugin Install
+### 2. To Just Use Plugin - WP Plugin Install
 Download zip and install in WordPress admin
 
 ## File Placement and Setup
