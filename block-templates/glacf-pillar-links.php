@@ -19,17 +19,19 @@ if ( !empty( $block['className'] ) ) {
 	$className .= ' ' . $block['className'];
 }
 
+$alignClass = $block['align'] ? 'align' . $block['align'] : '';
+
 $id = 'pillar-link-' . $block['id'];
 if ( !empty( $block['anchor'] ) ) {
 	$id = $block['anchor'];
 }
 
-$links_per_row = get_field('links_per_row');
-if(!$links_per_row) {
-	$links_per_row = 3;
+$linksPerRow = get_field('links_per_row');
+if(!$linksPerRow) {
+	$linksPerRow = 3;
 }
 
-$link_width = (100/$links_per_row) - 2;
+$link_width = ( 100 / $linksPerRow) - 2;
 
 $link_height = get_field('box_height');
 if(!$link_height) {
@@ -95,7 +97,7 @@ $hover_opacity = get_field('hover_opacity');
 	$counter = 0;
 	?>
 
-	<div id="<?php echo esc_attr( $id ); ?>" class="flex-pillar-links">
+	<div id="<?php echo esc_attr( $id ); ?>" class="flex-pillar-links <?php echo $alignClass; ?>">
 
 		<?php while ( have_rows( 'pillar_links' ) ): the_row() ?>
 			<?php //vars

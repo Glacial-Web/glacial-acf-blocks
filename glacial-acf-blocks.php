@@ -29,7 +29,7 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 // Add Glacial category to WP block menu with hook
-function glacf_block_categories( $categories, $post ) {
+function glacf_block_categories( $categories, $post ): array {
 	return array_merge(
 		array(
 			array(
@@ -47,16 +47,16 @@ add_filter(
 	10,
 	2
 );
-/*
+
 // Save ACF JSON
 add_filter( 'acf/settings/save_json', 'glacial_json_save_point' );
-function glacial_json_save_point( $glacf_path ) {
+function glacial_json_save_point( $glacf_path ): string {
 	// update path
 	$glacf_path = plugin_dir_path( __FILE__ ) . '/glacial-acf-json';
 
 	// return
 	return $glacf_path;
-}*/
+}
 
 // Load ACF JSON
 add_filter( 'acf/settings/load_json', 'glacial_json_load_point' );
