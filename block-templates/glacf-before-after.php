@@ -21,103 +21,75 @@ $alignClass = $block['align'] ? 'align' . $block['align'] : '';
 
 $allClasses = array( $alignClass, $className );
 
-$customID  = 'before-after-' . $block['id'];
-$defaultID = 'default-' . $block['id'];
+$blockID = 'before-after-' . $block['id'];
 
 $linesOrientation = get_field( 'layout' );
 
-$custom = get_field( 'create_custom_before_after' );
+$custom = get_field( 'create_custom_before_and_after' );
+// Get total row numbers
+/*$rowCount = count(get_field('before_and_after_slider'));
+echo $rowCount;*/
+$imageRows = get_field( 'before_and_after_slider' );
 
-if ( $custom ): ?>
+if ( $custom === 'Custom' ): ?>
 
-	<div id="<?php echo $customID; ?>" class="b-dics <?php echo implode( ' ', $allClasses ); ?>">
-		<?php while ( have_rows( 'before_and_after_slider' ) ): the_row(); ?>
+	<div id="<?php echo $blockID; ?>" class="b-dics <?php echo implode( ' ', $allClasses ); ?>">
 
-			<?php $image = get_sub_field( 'before_and_after_image' ); ?>
+		<?php if ( ! isset( $imageRows[0]['before_and_after_image']['ID'] ) ): ?>
+			<img src="https://via.placeholder.com/1200x300.png?text=Please+add+images" alt="Add Image">
+		<?php else: ?>
 
-			<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+			<?php while ( have_rows( 'before_and_after_slider' ) ): the_row(); ?>
 
-		<?php endwhile; ?>
+				<?php $image = get_sub_field( 'before_and_after_image' ); ?>
+
+				<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+
+			<?php endwhile; ?>
+
+		<?php endif; ?>
 
 	</div>
 
-
-	<?php if ( is_admin() ): ?>
-
-		<script>
-			new Dics({
-				container: document.querySelector('<?php echo '#' . $customID; ?>'),
-				textPosition: 'top',
-				linesOrientation: '<?php echo $linesOrientation; ?>'
-			});
-		</script>
-
-		<style>
-			.editor-styles-wrapper .b-dics img {
-				max-width: none;
-			}
-		</style>
-
-	<?php else: ?>
-
-		<script>
-			document.addEventListener('DOMContentLoaded', domReady);
-
-			function domReady() {
-				new Dics({
-					container: document.querySelector('<?php echo '#' . $customID; ?>'),
-					textPosition: 'top',
-					linesOrientation: '<?php echo $linesOrientation; ?>'
-				});
-			}
-		</script>
-	<?php endif; ?>
-
-
 <?php else: ?>
 
-	<div id="<?php echo 'default-' . $customID; ?>" class="b-dics <?php echo implode( ' ', $allClasses ); ?>">
-		<?php $image = get_sub_field( 'before_and_after_image' ); ?>
+	<div id="<?php echo $blockID; ?>" class="b-dics <?php echo implode( ' ', $allClasses ); ?>">
 
 		<img src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/img/before-after-1.jpg'; ?>" alt="Alt 1">
 		<img src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/img/before-after-2.jpg'; ?>" alt="Alt 2">
 		<img src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/img/before-after-3.jpg'; ?>" alt="Alt 3">
 	</div>
 
+<?php endif; ?>
 
-	<?php if ( is_admin() ): ?>
+<?php if ( is_admin() ): ?>
 
-		<script>
-			new Dics({
-				container: document.querySelector('<?php echo '#' . 'default-' . $customID; ?>'),
-				textPosition: 'top',
-				linesOrientation: '<?php echo $linesOrientation; ?>'
-			});
-		</script>
-
-		<style>
-			.editor-styles-wrapper .b-dics img {
-				max-width: none;
-			}
-		</style>
-
-	<?php else: ?>
-
-		<script>
-			document.addEventListener('DOMContentLoaded', domReady);
-
-			function domReady() {
-				new Dics({
-					container: document.querySelector('<?php echo '#' . 'default-' . $customID; ?>'),
-					textPosition: 'top',
-					linesOrientation: '<?php echo $linesOrientation; ?>'
-
-				});
-			}
-		</script>
-	<?php endif; ?>
+	<style>
+		.editor-styles-wrapper .b-dics img {
+			max-width: none;
+		}
+	</style>
 
 <?php endif; ?>
+
+<script>
+	<?php if (! is_admin()): ?>
+
+	document.addEventListener('DOMContentLoaded', domReady);
+
+	function domReady() {
+		<?php endif; ?>
+
+		new Dics({
+			container: document.querySelector('<?php echo '#' . $blockID; ?>'),
+			textPosition: 'top',
+			linesOrientation: '<?php echo $linesOrientation; ?>'
+		});
+
+	<?php if ( ! is_admin() ) {
+		echo '}';
+	} ?>
+</script>
 
 
 

@@ -47,7 +47,7 @@ add_filter(
 	10,
 	2
 );
-/*
+
 // Save ACF JSON
 add_filter( 'acf/settings/save_json', 'glacial_json_save_point' );
 function glacial_json_save_point( $glacf_path ): string {
@@ -56,7 +56,7 @@ function glacial_json_save_point( $glacf_path ): string {
 
 	// return
 	return $glacf_path;
-}*/
+}
 
 // Load ACF JSON
 add_filter( 'acf/settings/load_json', 'glacial_json_load_point' );

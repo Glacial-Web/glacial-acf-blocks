@@ -3,10 +3,10 @@
     "title": "Glacial Block: Before and After Slider",
     "fields": [
         {
-            "key": "field_60269e3c4eb86",
-            "label": "Create Custom Before-After",
-            "name": "create_custom_before_after",
-            "type": "true_false",
+            "key": "field_602895b8adc4a",
+            "label": "Create Custom Before and After",
+            "name": "create_custom_before_and_after",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,11 +15,36 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "Custom",
-            "ui_off_text": "Default"
+            "choices": {
+                "Default": "Default",
+                "Custom": "Custom"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_6026e110da258",
+            "label": "Layout",
+            "name": "layout",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "horizontal": "Horizontal",
+                "vertical": "Vertical"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
         },
         {
             "key": "field_6026e16e25374",
@@ -31,9 +56,9 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_60269e3c4eb86",
+                        "field": "field_602895b8adc4a",
                         "operator": "==",
-                        "value": "1"
+                        "value": "Custom"
                     }
                 ]
             ],
@@ -52,15 +77,7 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_60269e3c4eb86",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -97,44 +114,6 @@
                     "mime_types": ""
                 }
             ]
-        },
-        {
-            "key": "field_6026e0f9da257",
-            "label": "Design",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_6026e110da258",
-            "label": "Layout",
-            "name": "layout",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "horizontal": "Horizontal",
-                "vertical": "Vertical"
-            },
-            "allow_null": 0,
-            "default_value": "",
-            "layout": "vertical",
-            "return_format": "value"
         }
     ],
     "location": [
@@ -154,5 +133,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613163601
+    "modified": 1613272633
 }

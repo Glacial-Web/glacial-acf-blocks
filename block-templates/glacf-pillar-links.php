@@ -15,55 +15,60 @@
  */
 
 $className = 'pillar-link';
-if ( !empty( $block['className'] ) ) {
+if ( ! empty( $block['className'] ) ) {
 	$className .= ' ' . $block['className'];
 }
 
 $alignClass = $block['align'] ? 'align' . $block['align'] : '';
 
 $id = 'pillar-link-' . $block['id'];
-if ( !empty( $block['anchor'] ) ) {
+if ( ! empty( $block['anchor'] ) ) {
 	$id = $block['anchor'];
 }
 
-$linksPerRow = get_field('links_per_row');
-if(!$linksPerRow) {
+$linksPerRow = get_field( 'links_per_row' );
+if ( ! $linksPerRow ) {
 	$linksPerRow = 3;
 }
 
-$link_width = ( 100 / $linksPerRow) - 2;
+$link_width = ( 100 / $linksPerRow ) - 2;
 
-$link_height = get_field('box_height');
-if(!$link_height) {
+$link_height = get_field( 'box_height' );
+if ( ! $link_height ) {
 	$link_height = 260;
 }
 
-$overlay_color = get_field('overlay_color');
-$text_color = get_field('text_color');
-$hover_text_color = get_field('hover_text_color');
-$overlay_opacity = get_field('overlay_opacity');
-$hover_opacity = get_field('hover_opacity');
+$overlay_color    = get_field( 'overlay_color' );
+$text_color       = get_field( 'text_color' );
+$hover_text_color = get_field( 'hover_text_color' );
+$overlay_opacity  = get_field( 'overlay_opacity' );
+$hover_opacity    = get_field( 'hover_opacity' );
 
 ?>
 
 <style type="text/css">
 
-	<?php echo '#' . $id ; ?> .pillar-link-text {
+	<?php echo '#' . $id ; ?>
+	.pillar-link-text {
 		color: <?php echo $text_color; ?>;
 	}
 
-	<?php echo '#' . $id; ?> .pillar-link-div:hover .pillar-link-overlay {
+	<?php echo '#' . $id; ?>
+	.pillar-link-div:hover .pillar-link-overlay {
 		opacity: <?php echo '.' . $hover_opacity; ?>;
 	}
 
-	<?php echo '#' . $id; ?> .pillar-link-overlay {
+	<?php echo '#' . $id; ?>
+	.pillar-link-overlay {
 		opacity: <?php echo '.' . $overlay_opacity;?>;
 		background: <?php echo $overlay_color; ?>;
 	}
 
-	<?php echo '#' . $id; ?> .pillar-link-div:hover .pillar-link-text {
+	<?php echo '#' . $id; ?>
+	.pillar-link-div:hover .pillar-link-text {
 		color: <?php echo $hover_text_color; ?>;
 	}
+
 	.pillar-link-div {
 		width: <?php echo $link_width . '%'; ?>;
 		margin-right: 2%;
@@ -103,27 +108,32 @@ $hover_opacity = get_field('hover_opacity');
 			<?php //vars
 			$link     = get_sub_field( 'link' );
 			$bg_image = get_sub_field( 'background_image' );
-			$size     = 'large';
-			$img_url  = wp_get_attachment_image_url( $bg_image['id'], $size );
+			if ( $bg_image ) {
+				$size    = 'large';
+				$img_url = wp_get_attachment_image_url( $bg_image['id'], $size );
+			}
 			?>
 
-				<div class="pillar-link-div">
-					<a href="<?php echo esc_url($link['url']); ?>" title="<?php echo $link['title']; ?>" target="<?php echo $link['target']; ?>"
-					   class="disable-link-admin <?php echo 'pillar-link-bg-' . $counter . ' ' . esc_attr( $className ); ?>">
+			<div class="pillar-link-div">
+				<a href="<?php echo esc_url( $link['url'] ); ?>" title="<?php echo $link['title']; ?>"
+				   target="<?php echo $link['target']; ?>"
+				   class="disable-link-admin <?php echo 'pillar-link-bg-' . $counter . ' ' . esc_attr( $className ); ?>">
 
-						<div class="pillar-link-overlay">
-						</div>
-						<div class="pillar-link-text"><?php echo $link['title']; ?></div>
+					<div class="pillar-link-overlay">
+					</div>
+					<div class="pillar-link-text"><?php echo $link['title']; ?></div>
 
-					</a>
-				</div>
+				</a>
+			</div>
 
-			<style type="text/css">
-				.pillar-link-bg-<?php echo $counter; ?> {
-					background-size: cover;
-					background: url("<?php echo $img_url; ?>");
-				}
-			</style>
+			<?php if ( $bg_image ): ?>
+				<style type="text/css">
+					.pillar-link-bg-<?php echo $counter; ?> {
+						background-size: cover;
+						background: url("<?php echo $img_url; ?>");
+					}
+				</style>
+			<?php endif; ?>
 
 			<?php
 			$counter ++;
@@ -133,12 +143,12 @@ $hover_opacity = get_field('hover_opacity');
 
 <?php endif; ?>
 
-<?php if (is_admin()): ?>
-<script>
-jQuery('.disable-link-admin').on('click', function (e) {
-	e.preventDefault();
-});
-</script>
+<?php if ( is_admin() ): ?>
+	<script>
+		jQuery('.disable-link-admin').on('click', function (e) {
+			e.preventDefault();
+		});
+	</script>
 
 	<style>
 		.disable-link-admin:hover {
