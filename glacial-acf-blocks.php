@@ -29,7 +29,7 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 // Add Glacial category to WP block menu with hook
-function glacf_block_categories( $categories, $post ): array {
+function glacial_block_categories( $categories, $post ): array {
 	return array_merge(
 		array(
 			array(
@@ -43,32 +43,27 @@ function glacf_block_categories( $categories, $post ): array {
 
 add_filter(
 	'block_categories',
-	'glacf_block_categories',
+	'glacial_block_categories',
 	10,
 	2
 );
 
 // Save ACF JSON
-add_filter( 'acf/settings/save_json', 'glacial_json_save_point' );
 function glacial_json_save_point( $glacf_path ): string {
-	// update path
 	$glacf_path = plugin_dir_path( __FILE__ ) . '/glacial-acf-json';
 
-	// return
 	return $glacf_path;
 }
+add_filter( 'acf/settings/save_json', 'glacial_json_save_point' );
 
 // Load ACF JSON
-add_filter( 'acf/settings/load_json', 'glacial_json_load_point' );
 function glacial_json_load_point( $glacf_path ) {
-	// remove original path
 	unset( $glacf_path[0] );
-	// append path
 	$glacf_path[] = plugin_dir_path( __FILE__ ) . '/glacial-acf-json';
 
-	// return
 	return $glacf_path;
 }
+add_filter( 'acf/settings/load_json', 'glacial_json_load_point' );
 
 // this is where our blocks are registered
 require_once( plugin_dir_path( __FILE__ ) . 'register-blocks.php' );
