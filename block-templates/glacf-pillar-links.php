@@ -31,7 +31,7 @@ $padding = $block['align'] == 'full' ? '20px' : '20px 0';
 $linksPerRow         = get_field( 'links_per_row' ) ?? 3;
 $link_height         = get_field( 'box_height' ) ?? 260;
 $grid_gap            = get_field( 'grid_gap' ) ?? 20;
-$border_radius            = get_field( 'border_radius' ) ?? 0;
+$border_radius       = get_field( 'border_radius' ) ?? 0;
 $text_position       = get_field( 'text_position' ) ?? 'center';
 $text_color          = get_field( 'text_color' ) ?? '#000';
 $overlay_color       = get_field( 'overlay_color' ) ?? '#000';
@@ -74,7 +74,6 @@ $hover_opacity       = get_field( 'hover_opacity' ) ?? 50;
 		border-radius: <?php echo $border_radius . '%'; ?>;
 
 	}
-
 
 	<?php echo '#' . $id; ?>
 	.pillar-link-div:hover .pillar-link-text {
