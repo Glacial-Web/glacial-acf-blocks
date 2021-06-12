@@ -27,7 +27,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -48,7 +48,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -60,10 +60,50 @@
             "append": "px"
         },
         {
-            "key": "field_5fbd1867df3e8",
-            "label": "Text Color",
-            "name": "text_color",
-            "type": "color_picker",
+            "key": "field_60c40d8fc238c",
+            "label": "Grid Gap",
+            "name": "grid_gap",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 20,
+            "min": 5,
+            "max": 50,
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_60c40eca9240c",
+            "label": "Border Radius",
+            "name": "border_radius",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": 0,
+            "max": 50,
+            "step": "",
+            "prepend": "",
+            "append": "%"
+        },
+        {
+            "key": "field_60c3befeaf4ab",
+            "label": "Text Position",
+            "name": "text_position",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -72,12 +112,23 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "#000"
+            "choices": {
+                "flex-start": "Top",
+                "center": "Center",
+                "flex-end": "Bottom"
+            },
+            "default_value": "center",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
-            "key": "field_5fbd1def8ac79",
-            "label": "Hover Text Color",
-            "name": "hover_text_color",
+            "key": "field_5fbd1867df3e8",
+            "label": "Text Color",
+            "name": "text_color",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -123,6 +174,36 @@
             "step": 1,
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_5fbd1def8ac79",
+            "label": "Hover Text Color",
+            "name": "hover_text_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000"
+        },
+        {
+            "key": "field_60c3ff85a14ee",
+            "label": "Hover Overlay Color",
+            "name": "hover_overlay_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000"
         },
         {
             "key": "field_5fbd182bd03de",
@@ -238,5 +319,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1606229528
+    "modified": 1623462255
 }

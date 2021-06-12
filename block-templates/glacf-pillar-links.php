@@ -26,71 +26,85 @@ if ( ! empty( $block['anchor'] ) ) {
 	$id = $block['anchor'];
 }
 
-$linksPerRow = get_field( 'links_per_row' );
-if ( ! $linksPerRow ) {
-	$linksPerRow = 3;
-}
+$padding = $block['align'] == 'full' ? '20px' : '20px 0';
 
-$link_width = ( 100 / $linksPerRow ) - 2;
-
-$link_height = get_field( 'box_height' );
-if ( ! $link_height ) {
-	$link_height = 260;
-}
-
-$overlay_color    = get_field( 'overlay_color' );
-$text_color       = get_field( 'text_color' );
-$hover_text_color = get_field( 'hover_text_color' );
-$overlay_opacity  = get_field( 'overlay_opacity' );
-$hover_opacity    = get_field( 'hover_opacity' );
-
+$linksPerRow         = get_field( 'links_per_row' ) ?? 3;
+$link_height         = get_field( 'box_height' ) ?? 260;
+$grid_gap            = get_field( 'grid_gap' ) ?? 20;
+$border_radius            = get_field( 'border_radius' ) ?? 0;
+$text_position       = get_field( 'text_position' ) ?? 'center';
+$text_color          = get_field( 'text_color' ) ?? '#000';
+$overlay_color       = get_field( 'overlay_color' ) ?? '#000';
+$overlay_opacity     = get_field( 'overlay_opacity' ) ?? 50;
+$hover_text_color    = get_field( 'hover_text_color' ) ?? '#000';
+$hover_overlay_color = get_field( 'hover_overlay_color' ) ?? '#000';
+$hover_opacity       = get_field( 'hover_opacity' ) ?? 50;
 ?>
 
-<style type="text/css">
+<style>
+
+	<?php echo '#' . $id; ?>.flex-pillar-links {
+		display: grid;
+		grid-template-columns: repeat(<?php echo $linksPerRow; ?>, 1fr);
+		padding: <?php echo $padding; ?>;
+		grid-gap: <?php echo $grid_gap . 'px'; ?>;
+	}
 
 	<?php echo '#' . $id ; ?>
 	.pillar-link-text {
+		align-items: <?php echo $text_position; ?>;
 		color: <?php echo $text_color; ?>;
 	}
 
 	<?php echo '#' . $id; ?>
 	.pillar-link-div:hover .pillar-link-overlay {
 		opacity: <?php echo '.' . $hover_opacity; ?>;
+		background: <?php echo $hover_overlay_color; ?>;
 	}
 
 	<?php echo '#' . $id; ?>
 	.pillar-link-overlay {
 		opacity: <?php echo '.' . $overlay_opacity;?>;
 		background: <?php echo $overlay_color; ?>;
+		border-radius: <?php echo $border_radius . '%'; ?>;
 	}
+
+	<?php echo '#' . $id; ?>
+	.pillar-link-div {
+		border-radius: <?php echo $border_radius . '%'; ?>;
+
+	}
+
 
 	<?php echo '#' . $id; ?>
 	.pillar-link-div:hover .pillar-link-text {
 		color: <?php echo $hover_text_color; ?>;
 	}
 
-	.pillar-link-div {
-		width: <?php echo $link_width . '%'; ?>;
-		margin-right: 2%;
-	}
-
 	.pillar-link-div a {
-
+		border-radius: <?php echo $border_radius . '%'; ?>;
 		height: <?php echo $link_height . 'px'; ?>
 	}
 
+	.acf-range-wrap input[type="number"] {
+		min-width: 4.5em;
+	}
 
 	@media (max-width: 991px) {
 
-		.pillar-link-div {
-			width: 48%;
+		<?php echo '#' . $id; ?>.flex-pillar-links {
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 10px;
 		}
 	}
 
 	@media (max-width: 479px) {
 
-		.pillar-link-div {
-			width: 100%;
+		<?php echo '#' . $id; ?>.flex-pillar-links {
+			grid-template-columns: 1fr;
+		}
+
+		.pillar-link-div a {
 			height: 200px;
 		}
 	}
@@ -131,6 +145,7 @@ $hover_opacity    = get_field( 'hover_opacity' );
 					.pillar-link-bg-<?php echo $counter; ?> {
 						background-size: cover;
 						background: url("<?php echo $img_url; ?>");
+						background-position: 50%;
 					}
 				</style>
 			<?php endif; ?>

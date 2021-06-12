@@ -18,7 +18,7 @@ html {
 	padding: 2em 1em;
 	width: 100%;
 	top: 1px;
-	z-index: 2;
+	z-index: 102;
 
 	&.alignwide, &.alignfull {
 		position: sticky;
@@ -28,16 +28,18 @@ html {
 		display: flex;
 		justify-content: space-around;
 		flex-wrap: wrap;
-		margin: 0 auto;
+		margin: 0 auto!important;
+		padding: 0;
 
 		li {
 			list-style: none;
 		}
 
-		a {
+		a.sticky-menu-custom {
 			text-decoration: none;
 			min-width: 150px;
 			text-align: center;
+			margin-bottom: 0;
 		}
 
 		a.sticky-menu-custom {

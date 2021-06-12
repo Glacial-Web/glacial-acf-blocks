@@ -31,73 +31,66 @@ function glacial_acf_register_blocks() {
 
 		// Pillar Links Block
 		acf_register_block_type(
-			array(
-				'name'            => 'glacf-pillar-links',
-				'title'           => __( 'Pillar Page Links' ),
-				'description'     => __( 'Link boxes with a background image' ),
-				//'render_template' => '/block-templates/glacf-pillar-links.php',
-				'render_callback' => 'glacial_blocks_template',
-				'category'        => 'glacial-blocks',
-				'icon'            => 'layout',
-				'keywords'        => array( 'pillar', 'links', 'buttons', 'glacial' ),
-				'mode'            => 'preview',
-//			'enqueue_style'   => plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css',
-				/*'enqueue_assets'  => function () {
-					wp_enqueue_style( 'glacf-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.css' );
-				},*/
-			)
+		  array(
+			'name'            => 'glacf-pillar-links',
+			'title'           => __( 'Pillar Page Links' ),
+			'description'     => __( 'Link boxes with a background image' ),
+			  //'render_template' => '/block-templates/glacf-pillar-links.php',
+			'render_callback' => 'glacial_blocks_template',
+			'category'        => 'glacial-blocks',
+			'icon'            => 'layout',
+			'keywords'        => array( 'pillar', 'links', 'buttons', 'glacial' ),
+			'mode'            => 'preview',
+		  )
 		);
 
 		//Testimonial Block
 		acf_register_block_type(
-			array(
-				'name'            => 'glacf-testimonial',
-				'title'           => __( 'Testimonial Block' ),
-				'description'     => __( 'Block in which to write a testimonial' ),
-				'render_callback' => 'glacial_blocks_template',
-				'category'        => 'glacial-blocks',
-				'icon'            => 'smiley',
-				'keywords'        => array( 'review', 'testimonial', 'patient', 'client', 'glacial' ),
-				'mode'            => 'preview'
-			)
+		  array(
+			'name'            => 'glacf-testimonial',
+			'title'           => __( 'Testimonial Block' ),
+			'description'     => __( 'Block in which to write a testimonial' ),
+			'render_callback' => 'glacial_blocks_template',
+			'category'        => 'glacial-blocks',
+			'icon'            => 'smiley',
+			'keywords'        => array( 'review', 'testimonial', 'patient', 'client', 'glacial' ),
+			'mode'            => 'preview'
+		  )
 		);
 
 		// register a before-after gallery block.
 		acf_register_block_type(
-			array(
-				'name'            => 'glacf-before-after',
-				'title'           => __( 'Before and After' ),
-				'description'     => __( 'Adds the Before and After Module with 3 images: Before Cataract Surgery, After Cataract Surgery, Advanced Technology Lenses' ),
-				'render_callback' => 'glacial_blocks_template',
-				'category'        => 'glacial-blocks',
-				'icon'            => 'format-gallery',
-				'keywords'        => array( 'before', 'after', 'glacial' ),
-				'mode'            => 'preview',
-			) );
+		  array(
+			'name'            => 'glacf-before-after',
+			'title'           => __( 'Before and After' ),
+			'description'     => __( 'Adds the Before and After Module with 3 images: Before Cataract Surgery, After Cataract Surgery, Advanced Technology Lenses' ),
+			'render_callback' => 'glacial_blocks_template',
+			'category'        => 'glacial-blocks',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'before', 'after', 'glacial' ),
+			'mode'            => 'preview',
+			'supports'        => array(
+			  'align' => false,
+			)
+		  ) );
 
 		// Popup Block
 		acf_register_block_type(
-			array(
-				'name'            => 'glacf-sticky-menu',
-				'title'           => __( 'Sticky Menu' ),
-				'description'     => __( 'A sticky menu for on page links' ),
-				//'render_template' => '/block-templates/glacf-pillar-links.php',
-				'render_callback' => 'glacial_blocks_template',
-				'category'        => 'glacial-blocks',
-				'icon'            => 'button',
-				'keywords'        => array( 'pillar', 'links', 'buttons' ),
-				'mode'            => 'preview',
-				'supports'        => array(
-					'align' => true,
-					'mode'  => false,
-					'jsx'   => true
-				),
-//			'enqueue_style'   => plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css',
-				'enqueue_assets'  => function () {
-					/*wp_register_script( 'micromodal', 'https://unpkg.com/micromodal/dist/micromodal.min.js', array( 'jquery' ), null, true );
-					wp_enqueue_script( 'micromodal' );*/
-				},
-			)
+		  array(
+			'name'            => 'glacf-sticky-menu',
+			'title'           => __( 'Sticky Menu' ),
+			'description'     => __( 'A sticky menu for on page links' ),
+			'render_callback' => 'glacial_blocks_template',
+			'category'        => 'glacial-blocks',
+			'icon'            => 'button',
+			'keywords'        => array( 'pillar', 'links', 'buttons' ),
+			'mode'            => 'preview',
+			'supports'        => array(
+			  'align' => true,
+			  'mode'  => false,
+			  'jsx'   => true
+			),
+		  )
 		);
 
 	}

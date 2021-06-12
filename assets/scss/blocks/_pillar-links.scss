@@ -1,20 +1,19 @@
 /* Pillar Links Block */
 .flex-pillar-links {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	margin-top: 2em;
+	display: grid;
+	padding: 20px;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 20px;
 }
 
 .pillar-link-overlay {
 	width: 100%;
 	height: 100%;
-	transition: 0.2s;
-	background: rgba(0,0,0,.3);
+	transition: 0.1s;
+	background: rgba(0, 0, 0, .3);
 }
 
 .pillar-link-div {
-	margin-bottom: 6em;
 	transition: 0.2s;
 	box-shadow: 4px 3px 6px 3px rgba(41, 48, 55, 0.17);
 }
@@ -35,14 +34,14 @@
 .pillar-link-div a {
 	position: relative;
 	background-size: cover;
-	background-position: 50% 50%;
+	background-position: 50%;
 	height: 100%;
 	width: 100%;
 	display: block;
 	text-decoration: none;
 
 	&:hover {
-		background-position: 55%;
+		background-position: 50%;
 	}
 }
 
@@ -52,7 +51,7 @@
 	align-items: center;
 	justify-content: center;
 	position: absolute;
-width: 100%;
+	width: 100%;
 	top: 0;
 	height: 100%;
 	z-index: 12;
@@ -60,7 +59,7 @@ width: 100%;
 	text-align: center;
 	font-size: 1.5em;
 	color: #fff;
-	padding-top: 0.5em;
+	padding: 1em;
 	line-height: 1.3em;
 	transition: 0.2s;
 	opacity: 1;
@@ -68,20 +67,11 @@ width: 100%;
 
 @media (max-width: 991px) {
 
-	.pillar-link-div {
-		width: 48%;
-	}
 }
 
 @media (max-width: 479px) {
 
-
 	.pillar-link-div {
-		margin-bottom: 10em;
-	}
-
-	.pillar-link-div {
-		width: 100%;
 		height: 200px;
 	}
 }

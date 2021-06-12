@@ -134,23 +134,3 @@ if ( $use_site_style ) {
 	<?php endif; ?>
 
 </div>
-
-<?php if ( $overflow && !is_admin() ) { ?>
-
-	<script>
-
-
-		//let el = document.querySelector("#<?php echo $id; ?>");
-		//console.log(el.parentNode);
-		//console.log(el);
-		getParents(document.querySelector("#<?php echo $id; ?>")).forEach(function (el) {
-			let overflow = window.getComputedStyle(el, null).overflow;
-			if (overflow === 'hidden') {
-				console.log(overflow);
-				el.style.overflow = 'initial';
-				// el.classList.add('overflow-initial');
-			}
-		})
-
-	</script>
-<?php }; ?>

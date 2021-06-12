@@ -108,25 +108,6 @@
             "ui_off_text": "Off"
         },
         {
-            "key": "field_5faf37c45beaf",
-            "label": "Adjust Overflow",
-            "name": "overflow",
-            "type": "true_false",
-            "instructions": "Some overflow settings will cause sticky menu to not work. Turn this on to resolve issues of the menu not being 'sticky'.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "On",
-            "ui_off_text": "Off"
-        },
-        {
             "key": "field_5fba93323643f",
             "label": "Button Style",
             "name": "",
@@ -391,5 +372,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1606190306
+    "modified": 1623461252
 }

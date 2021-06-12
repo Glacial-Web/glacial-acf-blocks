@@ -54,7 +54,7 @@
 	position: relative;
 }
 
-.b-dics__image {
+.b-dics__image-container img.b-dics__image {
 	height: 100%;
 	position: absolute;
 	left: 0;
@@ -235,6 +235,8 @@
 
 @media (max-width: 767px) {
 	.b-dics__text {
-		font-size: 0.57em !important;
+		line-height: 1.2 !important;
+		font-size: 0.97em !important;
+		white-space: normal;
 	}
 }

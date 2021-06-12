@@ -54,9 +54,9 @@ if ( $custom === 'Custom' ): ?>
 <?php else: ?>
 
 	<div id="<?php echo $blockID; ?>" class="b-dics <?php echo implode( ' ', $allClasses ); ?>">
-		<img src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/img/before-after-1.jpg'; ?>" alt="Alt 1">
-		<img src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/img/before-after-2.jpg'; ?>" alt="Alt 2">
-		<img src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/img/before-after-3.jpg'; ?>" alt="Alt 3">
+		<img src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/img/before-after-1.jpg'; ?>" alt="Before Cataract Surgery">
+		<img src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/img/before-after-2.jpg'; ?>" alt="Monofocal Lens Implant">
+		<img src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/img/before-after-3.jpg'; ?>" alt="Advanced Technology Lens">
 	</div>
 
 <?php endif; ?>
