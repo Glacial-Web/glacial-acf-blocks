@@ -2,6 +2,17 @@
 WP plugin with collection Gutenberg Blocks built with Advanced Custom Fields. Includes dev environment with a local server, file watchers and hot reload of CSS, SASS, CSS prefixing, CSS/JS minification, image compression and auto saving of ACF setup JSON.
 
 :technologist:	:woman_technologist:
+
+## Blocks Included
+### 1. Pillar Link
+CSS Grid links with options from, row numbers and spacing, background image, and all custom colors
+
+### 2. Before and After
+Before and After Module with 3 images: Before Cataract Surgery, After Cataract Surgery, Advanced Technology Lenses. Custom images and custom number of images can be used with vertical or horizontal layout.
+
+### 3. Sticky Menu
+Menu that will stick to the top of page using css sticky position. Offers adjustments for fixed header. All other blocks can be used inside the menu.
+
 ## Install Methods
 
 ### 1. For Dev Work - Clone Repo
