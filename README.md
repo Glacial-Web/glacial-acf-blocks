@@ -13,7 +13,7 @@ Before and After Module with 3 images: Before Cataract Surgery, After Cataract S
 ### 3. Sticky Menu
 Menu that will stick to the top of page using css sticky position. Offers adjustments for fixed header. All other blocks can be used inside the menu.
 
-## Install Methods
+## Usage
 
 ### 1. To Just Use Plugin - WP Plugin Install
 Download zip of latest release here: https://github.com/Glacial-Web/glacial-acf-blocks/releases/latest and install in WordPress admin.
