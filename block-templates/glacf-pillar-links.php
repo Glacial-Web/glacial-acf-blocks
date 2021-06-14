@@ -122,7 +122,7 @@ $hover_opacity       = get_field( 'hover_opacity' ) ?? 50;
 			$link     = get_sub_field( 'link' );
 			$bg_image = get_sub_field( 'background_image' );
 			if ( $bg_image ) {
-				$size    = 'large';
+				$size    = 'glacial-links';
 				$img_url = wp_get_attachment_image_url( $bg_image['id'], $size );
 			}
 			?>
