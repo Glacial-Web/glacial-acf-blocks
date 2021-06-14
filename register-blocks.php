@@ -5,15 +5,23 @@ add_action( 'admin_enqueue_scripts', 'glacial_acf_register_style_admin' );
 
 // Admin only
 function glacial_acf_register_style_admin() {
-	wp_enqueue_style( 'glacial-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
-	wp_enqueue_script( 'glacial-blocks-js', 'https://codictados.com/public/dics/min/dics.min.js', 'jquery', null, true );
+	
+	if ( has_block( 'acf/glacf-before-after' ) || has_block( 'acf/glacf-pillar-links' ) || has_block( 'acf/glacf-sticky-menu' ) ) {
+		wp_enqueue_style( 'glacial-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
+		wp_enqueue_script( 'glacial-blocks-js', 'https://codictados.com/public/dics/min/dics.min.js', 'jquery', null, true );
+	}
 }
 
 // Frontend only
 function glacial_acf_register_style_front() {
 
-	wp_enqueue_style( 'glacial-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
-	wp_enqueue_script( 'glacial-blocks-js', 'https://codictados.com/public/dics/min/dics.min.js', 'jquery', null, true );
+	if ( has_block( 'acf/glacf-before-after' ) || has_block( 'acf/glacf-pillar-links' ) || has_block( 'acf/glacf-sticky-menu' ) ) {
+		wp_enqueue_style( 'glacial-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
+
+		if ( has_block( 'acf/glacf-before-after' ) ) {
+			wp_enqueue_script( 'glacial-blocks-js', 'https://codictados.com/public/dics/min/dics.min.js', 'jquery', null, true );
+		}
+	}
 
 }
 
