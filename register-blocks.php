@@ -6,7 +6,7 @@ add_action( 'admin_enqueue_scripts', 'glacial_acf_register_style_admin' );
 // Admin only
 function glacial_acf_register_style_admin() {
 	wp_enqueue_style( 'glacial-blocks-css', plugin_dir_url( __FILE__ ) . 'assets/css/glacial-blocks.min.css' );
-	wp_enqueue_script( 'glacial-blocks-js', plugin_dir_url( __FILE__ ) . 'assets/js/glacial-blocks-main.min.js', 'jquery', null, true );
+	wp_enqueue_script( 'glacial-blocks-js', 'https://codictados.com/public/dics/min/dics.min.js', 'jquery', null, true );
 }
 
 // Frontend only
@@ -41,20 +41,6 @@ function glacial_acf_register_blocks() {
 			'icon'            => 'layout',
 			'keywords'        => array( 'pillar', 'links', 'buttons', 'glacial' ),
 			'mode'            => 'preview',
-		  )
-		);
-
-		//Testimonial Block
-		acf_register_block_type(
-		  array(
-			'name'            => 'glacf-testimonial',
-			'title'           => __( 'Testimonial Block' ),
-			'description'     => __( 'Block in which to write a testimonial' ),
-			'render_callback' => 'glacial_blocks_template',
-			'category'        => 'glacial-blocks',
-			'icon'            => 'smiley',
-			'keywords'        => array( 'review', 'testimonial', 'patient', 'client', 'glacial' ),
-			'mode'            => 'preview'
 		  )
 		);
 
