@@ -18,7 +18,7 @@ Menu that will stick to the top of page using css sticky position. Offers adjust
 ### 1. To Just Use Plugin - WP Plugin Install
 Download zip of latest release here: https://github.com/Glacial-Web/glacial-acf-blocks/releases/latest and install in WordPress admin.
 
-### 1. For Dev Work - Clone Repo
+### 2. For Dev Work - Clone Repo
 ```bash
 $ cd wp-install/wp-content/plugins
 $ git clone https://github.com/gconrad0/glacial-acf-blocks
@@ -32,7 +32,7 @@ $ npm start
 
 
 
-## File Placement and Setup
+#### File Placement and Setup
 * Register your block in register-blocks.php
     * Rendering blocks is done with callback function in main plugin file (glacial-acf-block.php).
     * In acf_register_block_type() use:
@@ -44,7 +44,7 @@ $ npm start
     * Name your file _your-block-name and @import file in glacial-blocks.scss
     * CSS is enqueued in register-blocks.php
 
-## Wordpress Admin
+#### Wordpress Admin
 
 All field groups created will be automatically saved in /glacial-acf-json. When the group is changed the files will update
 
