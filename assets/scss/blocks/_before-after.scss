@@ -13,6 +13,13 @@
 	opacity: 0
 }
 
+.entry .before-after.b-dics {
+	max-width: 62rem;
+	margin-left: auto;
+	margin-right: auto;
+	width: calc(100% - 2rem);
+}
+
 .b-dics__section {
 	height: 100%
 }
