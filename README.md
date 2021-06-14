@@ -4,6 +4,9 @@ WP plugin with collection Gutenberg Blocks built with Advanced Custom Fields. In
 :technologist:	:woman_technologist:
 ## Install Methods
 
+### 1. To Just Use Plugin - WP Plugin Install
+Download zip of latest release here: https://github.com/Glacial-Web/glacial-acf-blocks/releases/latest and install in WordPress admin.
+
 ### 1. For Dev Work - Clone Repo
 ```bash
 $ cd wp-install/wp-content/plugins
@@ -17,8 +20,6 @@ $ npm start
 ```
 
 
-### 2. To Just Use Plugin - WP Plugin Install
-Download zip and install in WordPress admin
 
 ## File Placement and Setup
 * Register your block in register-blocks.php
