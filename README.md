@@ -1,5 +1,5 @@
 # Glacial ACF Blocks
-Examples: http://demo.gregwebdevtests.com.php73-37.phx1-1.websitetestlink.com/glacial-acf-blocks/
+<a href="http://demo.gregwebdevtests.com.php73-37.phx1-1.websitetestlink.com/glacial-acf-blocks/" taget="_blank">Examples</a>
 
 WP plugin with collection Gutenberg Blocks built with Advanced Custom Fields. Includes dev environment with a local server, file watchers and hot reload of CSS, SASS, CSS prefixing, CSS/JS minification, image compression and auto saving of ACF setup JSON.
 
