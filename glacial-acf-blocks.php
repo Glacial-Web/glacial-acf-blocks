@@ -28,10 +28,9 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-function glacial_acf_notice() {
-	?>
+function glacial_acf_notice() { ?>
 	<div class="notice notice-warning">
-		<p><?php _e( 'Please install Advanced Custom Fields Pro, it is required for Glacial ACF Blocks plugin to work.', 'my_plugin_textdomain' ); ?></p>
+		<p>Please install Advanced Custom Fields Pro, it is required for Glacial ACF Blocks plugin to work.</p>
 	</div>
 	<?php
 }
@@ -97,11 +96,9 @@ if ( ! function_exists( 'the_field' ) ) {
 				require $block_template;
 			}
 		}
-
 	}
 
-// Admin stuff... Not used yet
-//include( plugin_dir_path( __FILE__ ) . '/admin/class-glacial-acf-blocks-admin.php' );
+include( plugin_dir_path( __FILE__ ) . '/admin/class-glacial-acf-blocks-admin.php' );
 
 	add_image_size( 'glacial-links', 600, 600, true );
 }

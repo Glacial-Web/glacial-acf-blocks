@@ -101,5 +101,9 @@ class Glacial_Acf_Blocks_Admin {
 
 	}
 
+	public function create_options_page() {
+
+	}
+
 }
 

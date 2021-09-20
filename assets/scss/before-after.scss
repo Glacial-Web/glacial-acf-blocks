@@ -1,3 +1,9 @@
+/*Fix height in Gutenberg*/
+
+.block-editor__container .b-dics img {
+	height:100%;
+}
+
 .b-dics img {
 	max-width: none !important;
 }
@@ -10,7 +16,8 @@
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	opacity: 0
+	opacity: 0;
+	margin: 2em auto;
 }
 
 .entry .before-after.b-dics {
