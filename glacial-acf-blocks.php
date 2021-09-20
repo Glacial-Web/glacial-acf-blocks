@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Glacial ACF Blocks
  * Description:       A plugin full of helpful Gutenberg Blocks built with Advanced Custom Fields
- * Version:           0.9.0
+ * Version:           1.01
  * Author:            Glacial Multimedia
  * Author URI:        https://glacial.com
  * License:           GPL-2.0+
