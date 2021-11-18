@@ -53,7 +53,7 @@ if ( ! function_exists( 'the_field' ) ) {
 	}
 
 	add_filter(
-			'block_categories',
+			'block_categories_all',
 			'glacial_block_categories',
 			10,
 			2
